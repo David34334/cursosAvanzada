@@ -1,29 +1,22 @@
 package co.edu.ucentral.cursos.model.testAlumnoClase;
 
 import co.edu.ucentral.cursos.model.Alumno_Clase;
-import co.edu.ucentral.cursos.model.Alumnos;
-import co.edu.ucentral.cursos.model.Clases;
 import javax.persistence.*;
 import org.apache.logging.log4j.*;
 
-public class PersistirAlumnoClase {
+public class ConsultarClaseAlumnoJPA {
 
-    static Logger log = (Logger) LogManager.getRootLogger();
+    static Logger log = LogManager.getRootLogger();
 
     public static void main(String[] args) {
-
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("CursosUP");
         EntityManager manager = emf.createEntityManager();
-
+        // Inicio de transacción con la DB
         EntityTransaction tx = manager.getTransaction();
         tx.begin();
-
-        Alumnos alumno = manager.find(Alumnos.class, 1000252139);
-        Clases clase = manager.find(Clases.class, 1);
-        Alumno_Clase alumno_clase = new Alumno_Clase(alumno, clase, 4);
-        manager.persist(alumno_clase);
+        Alumno_Clase alumno = manager.find(Alumno_Clase.class, 1);
         tx.commit();
-        log.debug("Alumno en Clase: " + alumno_clase);
+        log.debug("Alumno: " + alumno);
         manager.close();
     }
 

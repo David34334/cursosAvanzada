@@ -1,12 +1,10 @@
 package co.edu.ucentral.cursos.model.testAlumnoClase;
 
 import co.edu.ucentral.cursos.model.Alumno_Clase;
-import co.edu.ucentral.cursos.model.Alumnos;
-import co.edu.ucentral.cursos.model.Clases;
 import javax.persistence.*;
 import org.apache.logging.log4j.*;
 
-public class PersistirAlumnoClase {
+public class ActualizarClaseAlumnoJPA {
 
     static Logger log = (Logger) LogManager.getRootLogger();
 
@@ -17,14 +15,11 @@ public class PersistirAlumnoClase {
 
         EntityTransaction tx = manager.getTransaction();
         tx.begin();
-
-        Alumnos alumno = manager.find(Alumnos.class, 1000252139);
-        Clases clase = manager.find(Clases.class, 1);
-        Alumno_Clase alumno_clase = new Alumno_Clase(alumno, clase, 4);
-        manager.persist(alumno_clase);
+        Alumno_Clase alumnoClase = manager.find(Alumno_Clase.class, 1);
+        log.debug("Alumno en Clase recuperado: " + alumnoClase);
+        alumnoClase.setCalificacion(3);
         tx.commit();
-        log.debug("Alumno en Clase: " + alumno_clase);
+        log.debug("Alumno en Clase actualizado: " + alumnoClase);
         manager.close();
     }
-
 }
