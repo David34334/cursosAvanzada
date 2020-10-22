@@ -20,7 +20,7 @@ public class PersistirAlumnoClase {
 
         Alumnos alumno = manager.find(Alumnos.class, 1000252139);
         Clases clase = manager.find(Clases.class, 1);
-        Alumno_Clase alumno_clase = new Alumno_Clase(alumno, clase, 4);
+        Alumno_Clase alumno_clase = new Alumno_Clase(alumno, clase);
         manager.persist(alumno_clase);
         tx.commit();
         log.debug("Alumno en Clase: " + alumno_clase);

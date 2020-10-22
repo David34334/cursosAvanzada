@@ -21,10 +21,9 @@ public class PersistirClasesJPA {
         tx.begin();
 
         Docentes docente = manager.find(Docentes.class, 45454545);
-        Departamentos departamento = manager.find(Departamentos.class, 1);
         Cursos curso = manager.find(Cursos.class, 1);
         Periodos periodo = manager.find(Periodos.class, 1);
-        Clases clase = new Clases(docente, departamento, periodo, curso);
+        Clases clase = new Clases(docente, periodo, curso);
         manager.persist(clase);
         tx.commit();
         log.debug("Factura " + clase);

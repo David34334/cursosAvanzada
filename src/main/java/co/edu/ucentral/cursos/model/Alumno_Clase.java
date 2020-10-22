@@ -25,17 +25,15 @@ public class Alumno_Clase implements Serializable {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_clase")
     private Clases id_clase;
-    private int calificacion;
     
     
     public Alumno_Clase() {
         
     }
 
-    public Alumno_Clase(Alumnos alumno, Clases clase, int calificacion) {
+    public Alumno_Clase(Alumnos alumno, Clases clase) {
         this.id_alumno = alumno;
         this.id_clase = clase;
-        this.calificacion = calificacion;
     }
     
 
@@ -63,17 +61,9 @@ public class Alumno_Clase implements Serializable {
         this.id_clase = id_clase;
     }
 
-    public int getCalificacion() {
-        return calificacion;
-    }
-
-    public void setCalificacion(int calificacion) {
-        this.calificacion = calificacion;
-    }
-
     @Override
     public String toString() {
-        return "Alumno_Clase{" + "alumno=" + id_alumno + ", clase=" + id_clase + ", calificacion=" + calificacion + '}';
+        return "Alumno_Clase{" + "alumno=" + id_alumno + ", clase=" + id_clase + '}';
     }
     
 }

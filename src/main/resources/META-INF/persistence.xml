@@ -13,6 +13,10 @@
         <class>co.edu.ucentral.cursos.model.Docentes</class>
         <class>co.edu.ucentral.cursos.model.Facultades</class>
         <class>co.edu.ucentral.cursos.model.Periodos</class>
+        <class>co.edu.ucentral.cursos.model.Evaluaciones</class>
+        <class>co.edu.ucentral.cursos.model.Preguntas</class>
+        <class>co.edu.ucentral.cursos.model.Respuestas</class>
+        <class>co.edu.ucentral.cursos.model.Banco_Respuesta</class>
         <class>co.edu.ucentral.cursos.model.testPatronesFactoria.MiembroEstudiante</class>
         <class>co.edu.ucentral.cursos.model.testPatronesFactoria.MiembroDocente</class>
         <properties>

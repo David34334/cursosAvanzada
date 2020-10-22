@@ -22,9 +22,6 @@ public class Clases implements Serializable {
     @JoinColumn(name = "id_docente")
     private Docentes id_docente;
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_departamento")
-    private Departamentos id_departamento;
-    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_periodo")
     private Periodos id_periodo;
     @ManyToOne(fetch = FetchType.EAGER)
@@ -36,9 +33,8 @@ public class Clases implements Serializable {
         
     }
 
-    public Clases(Docentes docente, Departamentos departamento, Periodos periodo, Cursos curso) {
+    public Clases(Docentes docente, Periodos periodo, Cursos curso) {
         this.id_docente = docente;
-        this.id_departamento = departamento;
         this.id_periodo = periodo;
         this.id_curso = curso;
     }
@@ -60,14 +56,6 @@ public class Clases implements Serializable {
         this.id_docente = id_docente;
     }
 
-    public Departamentos getId_departamento() {
-        return id_departamento;
-    }
-
-    public void setId_departamento(Departamentos id_departamento) {
-        this.id_departamento = id_departamento;
-    }
-
     public Periodos getId_periodo() {
         return id_periodo;
     }
@@ -86,7 +74,7 @@ public class Clases implements Serializable {
 
     @Override
     public String toString() {
-        return "Clases{" + "docente=" + id_docente + ", departamento=" + id_departamento + ", periodo=" + id_periodo + ", curso=" + id_curso + '}';
+        return "Clases{" + "docente=" + id_docente + ", periodo=" + id_periodo + ", curso=" + id_curso + '}';
     }
      
 }

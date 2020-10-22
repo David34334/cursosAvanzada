@@ -1,11 +1,11 @@
-package co.edu.ucentral.cursos.model.testCursos;
+package co.edu.ucentral.cursos.model.testBancoRespuestas;
 
-import co.edu.ucentral.cursos.model.Cursos;
-import co.edu.ucentral.cursos.model.Departamentos;
+import co.edu.ucentral.cursos.model.Banco_Respuesta;
+import co.edu.ucentral.cursos.model.Respuestas;
 import javax.persistence.*;
 import org.apache.logging.log4j.*;
 
-public class PersistirCursosJPA {
+public class PersistirBancoRespuestasJPA {
 
     static Logger log = (Logger) LogManager.getRootLogger();
 
@@ -16,16 +16,16 @@ public class PersistirCursosJPA {
         //Inicio de Transacción
         EntityTransaction tx = manager.getTransaction();
 
-        //Se crea el Docente
-        Departamentos departamento = manager.find(Departamentos.class, 1);
-        Cursos curso = new Cursos("Programación Avanzada", departamento);
+        //Se crea el Alumno
+        Respuestas respuesta = manager.find(Respuestas.class, 2);
+        Banco_Respuesta almacenarRespuesta = new Banco_Respuesta(respuesta);
         //Se inicia la transacción
         tx.begin();
         //Se ejecuta el SQL
-        manager.persist(curso);
+        manager.persist(almacenarRespuesta);
         //Commit - Rollback
         tx.commit();
-        log.debug("Alumno Persistido: " + curso);
+        log.debug("Respuesta Persistida: " + almacenarRespuesta);
         manager.close();
 
     }

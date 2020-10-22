@@ -17,7 +17,7 @@ public class ActualizarClaseAlumnoJPA {
         tx.begin();
         Alumno_Clase alumnoClase = manager.find(Alumno_Clase.class, 1);
         log.debug("Alumno en Clase recuperado: " + alumnoClase);
-        alumnoClase.setCalificacion(3);
+        //alumnoClase.setCalificacion(3);
         tx.commit();
         log.debug("Alumno en Clase actualizado: " + alumnoClase);
         manager.close();
